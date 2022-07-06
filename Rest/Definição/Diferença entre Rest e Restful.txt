@@ -1,0 +1,8 @@
+Diferen?a entre Rest e Restful
+
+Voc? j? deve ter ouvido os termos Rest e Restful e ter ficado em d?vida. Afinal, eles s?o a mesma coisa? Veja a diferen?a;
+
+    Rest: ? um conjunto de princ?pios de arquitetura.
+    Restful: ? uma condi??o ?nica de aplicar os conceitos de Rest.
+
+Enquanto o primeiro est? voltado ? cria??o de servi?os disponibilizados na web, o segundo ? aquele que realiza a implementa??o desse padr?o
