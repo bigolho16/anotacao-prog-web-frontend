@@ -1,0 +1,13 @@
+#Pelo que entendi, Schema são as regras que se define na aplicação para que um dado posteriomente seja inserido seguindo esta regra!
+
+import mongoose, {Schema} from "mongoose";
+
+const UserSchema = new Schema({
+    name: String,
+    email: String,
+    username: String,
+    password: String,
+    phone: String
+});
+
+export default mongoose.model("Users", UserSchema);

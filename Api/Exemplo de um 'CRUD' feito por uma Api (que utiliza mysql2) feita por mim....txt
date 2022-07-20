@@ -1,0 +1,100 @@
+const mysql = require('mysql2');
+
+//Estabelecendo a conexão com o DB
+const connection = mysql.createConnection({
+    host : "10.0.0.139",
+    port : 3306,
+    user : "root",
+    password : "95991374293",
+    database : "popbar"
+});
+
+//Criação da tabela
+function createTable(conn) {
+    const sql = `CREATE TABLE IF NOT EXISTS clientes (
+                    id int not null auto_increment,
+                    nome varchar(150) not null,
+                    cpf char (11) not null,
+                    PRIMARY KEY (id)
+                );`;
+
+    conn.query(sql, (error, results, fields) => {
+        if (error) return console.log(error);
+        console.log('Sucessful created table!')
+    });
+
+}
+
+// Inserir
+function insertValues (conn) {
+    //Monta a query e inserse os valores
+    const sql = `INSERT INTO clientes (nome, cpf) VALUES ?`;
+    const values = [
+        ['Fulano Silva', '02066623559'],
+        ['Fulano de Tal', '05456984565'],
+        ['Outro Fulano', '05023659254']
+    ];
+
+    //Ativar a inserção
+    conn.query(sql, [values], (error, results, fields) => {
+        if (error) return console.log(error);
+        console.log('Sucessful created values in clientes table!')
+        conn.end(); //Fecha a conexão
+    });
+}
+
+// Selecionar
+function selectValues (conn) {
+    //Monta a query e inserse os valores
+    const sql = `SELECT * FROM clientes`;
+    
+    //Ativar a inserção
+    conn.query(sql, (error, results, fields) => {
+        if (error) return console.log(error);
+        console.log('Sucessful selected values in clientes table!')
+        console.log(results) //Variável 'results' retorna os dados!
+        conn.end(); //Fecha a conexão
+    });
+}
+
+// Atualizar
+function updateValue (conn) {
+    //Monta a query e inserse os valores
+    const sql = `UPDATE clientes SET nome='Fulano Ciclano da Silva ;)', cpf='08033649248' WHERE id=1`;
+    
+    //Ativar a edição
+    conn.query(sql, (error, results, fields) => {
+        if (error) return console.log(error);
+        console.log('Sucessful updated values in clientes table!');
+        console.log(results); // Retorna nada, apenas os dados que diz que atualizou!
+        conn.end(); //Fecha a conexão
+    });
+}
+
+// Deletar
+function deleteValue (conn) {
+    //Monta a query e inserse os valores
+    const sql = `DELETE FROM clientes WHERE id=3`;
+    
+    //Ativar o deletamento
+    conn.query(sql, (error, results, fields) => {
+        if (error) return console.log(error);
+        console.log('Sucessful deleted value in clientes table!');
+        console.log(results); //
+        conn.end(); //Fecha a conexão
+    });
+}
+
+//Executando as query
+connection.connect((err) => {
+
+    if (err) return console.log(err);
+    console.log("Sucessful connection!");
+
+    //Ativação do que se quer fazer!
+    // createTable(connection); //Cria a tabela
+    // insertValues (connection); //Insere os valores na tabela
+    // selectValues (connection); //Dar um select nos valores da tabela
+    // updateValue (connection); //Atualiza um valor especifico da tabela
+    // deleteValue(connection); //Deleta um valor especifico da tabela
+});

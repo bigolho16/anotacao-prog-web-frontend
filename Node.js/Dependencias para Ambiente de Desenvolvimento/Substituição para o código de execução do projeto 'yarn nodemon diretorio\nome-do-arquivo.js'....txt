@@ -1,0 +1,8 @@
+//O scripts vai dar permissões para quando eu rodar algum comando ele faça alguma coisa!
+scripts: {
+
+	"dev": "nodemon src/server.js"
+
+}
+
+//O comando a acima funciona mais ou menos assim: "yarn algumoutrocomandodaquiprafrente", exemplos: "yarn dev", "yarn nodemon src/server.js".... Tudo indiretamente tem um yarn invisivel alí no scripts!!!!

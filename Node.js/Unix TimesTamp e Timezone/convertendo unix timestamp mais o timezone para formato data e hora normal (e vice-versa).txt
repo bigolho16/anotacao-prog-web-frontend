@@ -1,0 +1,20 @@
+import moment from "moment";
+import dayjs from "dayjs";
+
+class Factory {
+
+    // de unixtimestamp p/ data hora '2022-07-19T20:00:52'
+    convUnixTamestampAndTimezoneToDateHour (unixtimestamp, timezone) {
+	let date = moment.utc(unixtimestamp,'X').add(timezone,'seconds').format();
+	return date;
+    }
+    
+    // de data hora para unixtimestamp
+    convDateHourForUnixTamestamp (date) {//Format aceitavel de date: '2022-07-19T20:00:52'
+        // let d = new Date(date);
+        let unx = dayjs("2022-07-19T23:42:53").unix();
+        return unx;
+    }
+}
+
+export default new Factory();

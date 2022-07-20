@@ -1,0 +1,3 @@
+middleware () {
+	this.server.use(express.json()); //Dizer para o express trabalhar com json
+}

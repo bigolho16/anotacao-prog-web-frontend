@@ -1,0 +1,17 @@
+GET - trazer todos os usuários (INDEX)
+
+HEAD
+
+POST - retorna um usuário específico (STORE); pode criar um usuário (CREATE)
+
+PUT - atualiza um usuário (UPDATE)
+
+DELETE - apaga um usuário (DESTROY)
+
+CONNECT
+
+OPTIONS
+
+TRACE
+
+PATCH
